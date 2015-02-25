@@ -1,0 +1,61 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/MainLinearLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_03"
+    android:gravity="left|top"
+    android:orientation="vertical"
+    tools:context="net.manhica.verbalautopsy.activity.VerbalAutopsyActivity" >
+
+    <TextView
+        android:id="@+id/hello_txt"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_gravity="left"
+        android:text="@string/hello_world"
+        android:textColor="#fff"
+        android:textSize="24sp" />
+    
+     <LinearLayout
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:layout_marginBottom="3dp"
+         android:layout_marginLeft="3dp"
+         android:layout_marginRight="3dp"
+         android:background="@drawable/n_listbackground" >
+
+         <ListView
+             android:id="@+id/listNeighborhoods"
+             android:layout_width="179dp"
+             android:layout_height="fill_parent"
+             android:layout_marginBottom="@dimen/list_margin_all"
+             android:layout_marginLeft="@dimen/list_margin_all"
+             android:layout_marginTop="@dimen/list_margin_all"
+             android:background="@drawable/list_border"
+             android:drawSelectorOnTop="false"
+             android:listSelector="@drawable/states_selector_list"
+             android:choiceMode="singleChoice" >
+
+         </ListView>
+    
+        <ListView
+            android:id="@+id/listHouseOrIndividuals"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginBottom="@dimen/list_margin_all"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="@dimen/list_margin_all"
+            android:layout_marginTop="@dimen/list_margin_all"
+            android:background="#FFF"
+            android:dividerHeight="2dp"
+            android:drawSelectorOnTop="true"
+            android:headerDividersEnabled="true" >
+
+    	</ListView> 
+         
+    </LinearLayout>
+    
+    
+
+</LinearLayout>

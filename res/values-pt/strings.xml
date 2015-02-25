@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Verbal Autopsy Collector</string>
+    <string name="hello_world">Bem vindo</string>
+    <string name="action_settings">Definições</string>
+    <string name="downloading_lbl">Baixando</string>
+    <string name="saving_lbl">Guardando</string>
+    <string name="fieldworkers_lbl">Inquiuridores</string>
+    <string name="dead_individuals_lbl">registos de mortes</string>
+    <string name="neighborhoods_lbl">Bairros</string>
+    <string name="households_lbl">Agregados</string>
+    <string name="records_lbl">registos</string>
+    <string name="saved_lbl">Guardado</string>
+    <string name="sync_success_lbl">Sincronização completa</string>
+    <string name="sync_failure_lbl">Ocorreu uma falha na sincronização</string>
+
+    <string name="title_login">Entrar como inquiridor</string>
+
+    <!-- Strings related to login -->
+    <string name="login_username_lbl">Código do Inquiridor</string>
+    <string name="login_password_lbl">Senha</string>
+    <string name="login_lbl">Entrar como inquiridor</string>
+    <string name="login_short_lbl">Entrar</string>
+    <string name="error_invalid_username">O usuário introduzido não existe no sistema</string>
+    <string name="error_invalid_password">Esta senha é curta demais</string>
+    <string name="error_incorrect_password">A senha introduzida é invalida</string>
+    <string name="error_field_required">Este campo não pode estar em branco</string>
+    <string name="login_syncronize_lbl">Sincronizar Base de dados</string>
+    <string name="login_exit_lbl">Sair do sistema</string>
+    
+    
+    <string name="couldnt_open_xform_lbl">Não foi possivel abrir o formulario de autopsias verbais</string>
+    <string name="warning_lbl">Atenção</string>
+    <string name="odk_problem_lbl">Ocorreu um problema com o ODK</string>
+    
+    <string name="update_unfinish_msg1">O formulário foi aberto mas não foi finalizado. Esta instância do formulário será apagada. O que deseja fazer?</string>
+	<string name="update_unfinish_pos_button">Apagar formulário</string>
+	<string name="update_unfinish_neg_button">Alterar formulário</string>
+	<string name="update_unfinish_neutral_button">Salvar formulário</string>
+	<string name="update_unfinish_saved">O formulario foi salvo mas não esta finalizado, poderá ser editado depois</string>
+	<string name="update_xform_not_found_msg">O XForm não pôde ser encontrado dentro do ODK Collect. Por favor, certifique-se que ele existe e que foi escrito corretamente.</string>
+</resources>
