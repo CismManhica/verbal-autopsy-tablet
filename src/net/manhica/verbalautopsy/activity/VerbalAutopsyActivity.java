@@ -29,13 +29,17 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +69,8 @@ public class VerbalAutopsyActivity extends Activity {
 	private Household lastSelectedHousehold;
 	private Neighborhood lastSelectedNeighborhood;
 	
+	private EditText searchView; 
+	
 	private enum ListViewState {
 		NEIGHBORHOODS, HOUSEHOLDS, INDIVIDUALS
 	}
@@ -80,6 +86,7 @@ public class VerbalAutopsyActivity extends Activity {
         
         listNeighborhoods = (ListView) findViewById(R.id.listNeighborhoods);
         listHouseOrIndividuals = (ListView) findViewById(R.id.listHouseOrIndividuals);
+        searchView = (EditText) findViewById(R.id.searchView);
         
         listNeighborhoods.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -98,6 +105,24 @@ public class VerbalAutopsyActivity extends Activity {
 				}
 			}        	
 		});
+        
+        searchView.addTextChangedListener(new TextWatcher() {			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,	int after) {
+				
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {				
+				loadNeighborhoods(s.toString());				
+			}
+		});
+             
         
         //hello
         this.fieldWorker = (FieldWorker) getIntent().getExtras().get("fieldWorker");        
@@ -130,6 +155,30 @@ public class VerbalAutopsyActivity extends Activity {
 		this.listState = ListViewState.NEIGHBORHOODS;
 	}
     
+	private void loadNeighborhoods(String code) {
+		database.open();
+		
+		List<Neighborhood> neighs = new ArrayList<Neighborhood>();
+		
+		Cursor cursor = database.query(Neighborhood.class, Database.Neighborhood.COLUMN_CODE + " like ?", 
+				   new String[] { "%"+ code +"%" }, null, null, null);
+        
+        while (cursor.moveToNext()){
+        	Neighborhood nb = Converter.cursorToNeighborhood(cursor);
+        	neighs.add(nb);
+        	//Log.d("Neighborhood", nb.getCode()+", "+nb.getName()+", "+nb.getCluster());
+        }
+        
+        NeighborhoodArrayAdapter nba = new NeighborhoodArrayAdapter(this, neighs);
+		
+        listNeighborhoods.setAdapter(nba);
+        
+		database.close();
+		
+		lastSelectedHousehold = null;
+		this.listState = ListViewState.NEIGHBORHOODS;
+	}
+	
     private void loadHouseholds(Neighborhood neighborhood){
     	database.open();
     	
@@ -208,8 +257,8 @@ public class VerbalAutopsyActivity extends Activity {
     	switch (verbalAutopsyType) {
 			case 1: selectedVaForm = VA_NEONATE; break;
 			case 2: selectedVaForm = VA_CHILD; break;
-			case 3: selectedVaForm = VA_NEONATE; break;
-			case 4: selectedVaForm = VA_NEONATE; break;			
+			case 3: selectedVaForm = VA_PERSON; break;
+			case 4: selectedVaForm = VA_MATERNAL; break;			
 		}
     	
     	FilledForm filledForm = new FilledForm(selectedVaForm);

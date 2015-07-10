@@ -25,34 +25,64 @@
          android:layout_marginRight="3dp"
          android:background="@drawable/n_listbackground" >
 
-         <ListView
-             android:id="@+id/listNeighborhoods"
+         <LinearLayout
              android:layout_width="179dp"
              android:layout_height="fill_parent"
-             android:layout_marginBottom="@dimen/list_margin_all"
-             android:layout_marginLeft="@dimen/list_margin_all"
-             android:layout_marginTop="@dimen/list_margin_all"
-             android:background="@drawable/list_border"
-             android:drawSelectorOnTop="false"
-             android:listSelector="@drawable/states_selector_list"
-             android:choiceMode="singleChoice" >
+             android:orientation="vertical" >
 
-         </ListView>
+            <EditText
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="@dimen/list_margin_all"
+                android:layout_marginTop="@dimen/list_margin_all"
+                android:background="@drawable/search"
+                android:hint="Bairro"
+                android:iconifiedByDefault="false"
+                android:inputType="number"
+                android:queryHint="Bairros" >
+
+			</EditText>
+             
+             
+         	<ListView
+             	android:id="@+id/listNeighborhoods"
+             	android:layout_width="fill_parent"
+             	android:layout_height="match_parent"
+             	android:layout_marginBottom="@dimen/list_margin_all"
+             	android:layout_marginLeft="@dimen/list_margin_all"
+             	android:layout_marginTop="@dimen/list_margin_all"
+             	android:background="@drawable/list_border"
+             	android:drawSelectorOnTop="false"
+             	android:listSelector="@drawable/states_selector_list"
+             	android:choiceMode="singleChoice" >
+
+         	</ListView>    
+         </LinearLayout>
+         
+         <LinearLayout 
+             android:layout_width="match_parent"
+             android:layout_height="fill_parent"
+             >
+			<ListView
+            	android:id="@+id/listHouseOrIndividuals"
+            	android:layout_width="fill_parent"
+            	android:layout_height="fill_parent"
+            	android:layout_marginBottom="@dimen/list_margin_all"
+            	android:layout_marginLeft="5dp"
+            	android:layout_marginRight="@dimen/list_margin_all"
+            	android:layout_marginTop="@dimen/list_margin_all"
+            	android:background="#FFF"
+            	android:dividerHeight="2dp"
+            	android:drawSelectorOnTop="true"
+            	android:headerDividersEnabled="true" >
+
+    		</ListView>             
+         </LinearLayout>
+         
+         
     
-        <ListView
-            android:id="@+id/listHouseOrIndividuals"
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginBottom="@dimen/list_margin_all"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="@dimen/list_margin_all"
-            android:layout_marginTop="@dimen/list_margin_all"
-            android:background="#FFF"
-            android:dividerHeight="2dp"
-            android:drawSelectorOnTop="true"
-            android:headerDividersEnabled="true" >
-
-    	</ListView> 
+         
          
     </LinearLayout>
     

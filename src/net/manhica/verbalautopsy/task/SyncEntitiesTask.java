@@ -54,7 +54,7 @@ import android.util.Log;
 public class SyncEntitiesTask extends
 		AsyncTask<Void, Integer, String> {
 
-	private static final String API_PATH = "/files/verbal_autopsies";
+	private static final String API_PATH = "/files/clip";
 
 	private SyncDatabaseListener listener;
 	private ContentResolver resolver;
