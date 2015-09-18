@@ -14,8 +14,6 @@
     <string name="saved_lbl">Saved</string>
     <string name="sync_success_lbl">Syncronization Complete</string>
     <string name="sync_failure_lbl">Syncronization Failed</string>
-
-    
     <string name="title_login">Login as Fieldworker</string>
 
     <!-- Strings related to login -->
@@ -29,15 +27,17 @@
     <string name="error_field_required">This field is required</string>
     <string name="login_syncronize_lbl">Syncronize Database</string>
     <string name="login_exit_lbl">Exit</string>
-    
     <string name="couldnt_open_xform_lbl">Couldnt open Verbal Autopsy ODK Form</string>
     <string name="warning_lbl">Warning</string>
     <string name="odk_problem_lbl">There was a problem with ODK</string>
-    
     <string name="update_unfinish_msg1">Form started but not saved. This form instance will be deleted. What do you want to do?</string>
-	<string name="update_unfinish_pos_button">Delete form</string>
-	<string name="update_unfinish_neg_button">Edit form</string>
-	<string name="update_unfinish_neutral_button">Save form</string>
-	<string name="update_unfinish_saved">The form was saved but not finalized, you can edit it anytime</string>
-	<string name="update_xform_not_found_msg">The XForm could not be found within ODK Collect. Please make sure that it exists and it\'s named correctly.</string>
+    <string name="update_unfinish_pos_button">Delete form</string>
+    <string name="update_unfinish_neg_button">Edit form</string>
+    <string name="update_unfinish_neutral_button">Save form</string>
+    <string name="update_unfinish_saved">The form was saved but not finalized, you can edit it anytime</string>
+    <string name="update_xform_not_found_msg">The XForm could not be found within ODK Collect. Please make sure that it exists and it\'s named correctly.</string>
+    <string name="normal_collect_lbl">Pre-Registered Deaths</string>
+    <string name="collect_by_list_lbl">New Death Records</string>
+    <string name="title_activity_in_field_verbal_autopsy">Autopsias de mortes não registadas</string>
+
 </resources>

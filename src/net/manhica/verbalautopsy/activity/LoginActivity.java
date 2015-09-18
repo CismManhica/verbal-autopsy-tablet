@@ -68,6 +68,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>, 
 				
 	private ProgressDialog progressDialog;
 	
+	private FieldWorker loggedUser;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -330,7 +332,8 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>, 
 			if (fieldWorker != null) {
 				
 				if(BCrypt.checkpw(mPassword, fieldWorker.getPasswordHash())){
-					launchVerbalAutopsyActivity(fieldWorker);
+					loggedUser = fieldWorker;
+					launchChoice();
 				}else{
 					mPasswordView.setError(getString(R.string.error_invalid_password));
 					mPasswordView.requestFocus();
@@ -357,9 +360,39 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor>, 
 		finish();
 	}
 	
+	private void launchChoice(){
+		setContentView(R.layout.choose);
+		
+		Button vaWithoutDeathsBtn = (Button) findViewById(R.id.collectByInFieldDthBtn);
+		Button vaWithDeathsBtn = (Button) findViewById(R.id.collectByDeathListBtn);
+		
+		vaWithDeathsBtn.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				launchVerbalAutopsyActivity(loggedUser);				
+			}
+		});
+		
+		vaWithoutDeathsBtn.setOnClickListener(new View.OnClickListener() {			
+			@Override
+			public void onClick(View v) {
+				launchInFieldDeathActivity(loggedUser);				
+			}
+		});
+	}
+	
 	private void launchVerbalAutopsyActivity(FieldWorker fieldWorker) {
 		//TODO pass in a fieldworker object
 		Intent intent = new Intent(this, VerbalAutopsyActivity.class);
+		intent.putExtra("fieldWorker", fieldWorker);
+		//usernameEditText.setText("");
+		//passwordEditText.setText("");		
+		startActivity(intent);
+	}
+	
+	private void launchInFieldDeathActivity(FieldWorker fieldWorker) {
+		//TODO pass in a fieldworker object
+		Intent intent = new Intent(this, InFieldVerbalAutopsyActivity.class);
 		intent.putExtra("fieldWorker", fieldWorker);
 		//usernameEditText.setText("");
 		//passwordEditText.setText("");		

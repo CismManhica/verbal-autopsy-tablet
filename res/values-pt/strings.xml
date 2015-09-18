@@ -40,4 +40,7 @@
 	<string name="update_unfinish_neutral_button">Salvar formulário</string>
 	<string name="update_unfinish_saved">O formulario foi salvo mas não esta finalizado, poderá ser editado depois</string>
 	<string name="update_xform_not_found_msg">O XForm não pôde ser encontrado dentro do ODK Collect. Por favor, certifique-se que ele existe e que foi escrito corretamente.</string>
+	
+	<string name="normal_collect_lbl">Mortes Pré-Registradas</string>
+	<string name="collect_by_list_lbl">Novas Mortes</string>
 </resources>
