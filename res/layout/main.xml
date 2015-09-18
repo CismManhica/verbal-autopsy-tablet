@@ -37,9 +37,10 @@
                 android:layout_marginLeft="@dimen/list_margin_all"
                 android:layout_marginTop="@dimen/list_margin_all"
                 android:background="@drawable/search"
-                android:hint="Bairro"
+                android:hint="Bairro/Agregado"
                 android:iconifiedByDefault="false"
-                android:inputType="number"
+                android:inputType="number"                
+        		android:digits="0123456789-"
                 android:queryHint="Bairros" >
 
 			</EditText>

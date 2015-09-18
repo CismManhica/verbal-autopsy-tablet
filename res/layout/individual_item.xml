@@ -29,7 +29,8 @@
             android:gravity="left|center_horizontal"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:textColor="#444" />
         
         <TextView
             android:id="@+id/txtIndividualPermId"
@@ -37,7 +38,8 @@
             android:layout_height="wrap_content"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold|italic" />
+            android:textStyle="bold|italic"
+            android:textColor="#444" />
         
     </LinearLayout>
 

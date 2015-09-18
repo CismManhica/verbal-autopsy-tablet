@@ -49,7 +49,7 @@
                 android:inputType="text"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="#CCC" />
+                android:textColor="#444" android:text="FWCT1" />
 
             <TextView
                 android:id="@+id/txtViewPassword"
@@ -70,7 +70,7 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="#CCC" />
+                android:textColor="#444"  android:text="test"/>
 
             <Button
                 android:id="@+id/login_btn"
@@ -80,7 +80,8 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/login_lbl"
                 android:background="@drawable/keybutton_2"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#444" />
             
             <Button
                 android:id="@+id/login_syncronize_btn"
@@ -90,7 +91,8 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/login_syncronize_lbl"
                 android:background="@drawable/keybutton_2"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#444" />
             
             <Button
                 android:id="@+id/login_exit_btn"
@@ -100,7 +102,8 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/login_exit_lbl"
                 android:background="@drawable/keybutton_2"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textColor="#444" />
         </LinearLayout>
     </ScrollView>
 

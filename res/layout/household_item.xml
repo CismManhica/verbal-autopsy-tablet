@@ -26,6 +26,7 @@
             android:gravity="left"
             android:text="Large Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#444"
             android:textSize="24sp" />
         
         <TextView
@@ -33,6 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Medium Text"
+            android:textColor="#444"
             android:textAppearance="?android:attr/textAppearanceMedium" />
         
     </LinearLayout>

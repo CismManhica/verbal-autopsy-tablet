@@ -119,7 +119,12 @@ public class VerbalAutopsyActivity extends Activity {
 			
 			@Override
 			public void afterTextChanged(Editable s) {				
-				loadNeighborhoods(s.toString());				
+				if (listState == ListViewState.HOUSEHOLDS){
+					loadHouseholds(s.toString());
+				}else if (listState == ListViewState.NEIGHBORHOODS){
+					loadNeighborhoods(s.toString());
+				}
+								
 			}
 		});
              
@@ -177,6 +182,10 @@ public class VerbalAutopsyActivity extends Activity {
 		
 		lastSelectedHousehold = null;
 		this.listState = ListViewState.NEIGHBORHOODS;
+		
+		if (neighs.size()==1){
+			onNeighborhoodClicked(0);
+		}
 	}
 	
     private void loadHouseholds(Neighborhood neighborhood){
@@ -204,6 +213,31 @@ public class VerbalAutopsyActivity extends Activity {
     	this.listState = ListViewState.HOUSEHOLDS;
     }
 
+    private void loadHouseholds(String houseno){
+    	database.open();
+    	
+    	List<Household> houses = new ArrayList<Household>();
+    	
+    	Cursor cursor = database.query(Household.class, Database.Household.COLUMN_NUMBER + " like ?", 
+    								   new String[] { "%"+ houseno +"%" }, null, null, null);
+    	
+    	while (cursor.moveToNext()){
+    		Household hh = Converter.cursorToHousehold(cursor);
+    		houses.add(hh);
+    	}
+    	
+    	HouseholdArrayAdapter hha = new HouseholdArrayAdapter(this, houses);
+    	listHouseOrIndividuals.setAdapter(hha);
+    	
+    	database.close();
+    	
+    	//this.lastSelectedNeighborhood = neighborhood;
+    	this.lastSelectedHousehold = null;
+    	this.lastSelectedIndividual = null;
+    	
+    	this.listState = ListViewState.HOUSEHOLDS;
+    }
+    
     private void loadIndividuals(Household household){
     	database.open();
     	
@@ -237,7 +271,8 @@ public class VerbalAutopsyActivity extends Activity {
 	}
     
     private void reloadNeighborhoods() {
-		loadNeighborhoods();;		
+		loadNeighborhoods();	
+		listHouseOrIndividuals.setAdapter(null);
 	}
     
     protected void onIndividualClicked(int position) {
@@ -268,6 +303,7 @@ public class VerbalAutopsyActivity extends Activity {
     	filledForm.put("fieldWorkerId", fieldWorker.getExtId());
     	filledForm.put("dob", individual.getDateOfBirth());
     	filledForm.put("dthDate", individual.getDateOfDeath());
+    	filledForm.put("inFieldDeath", "2");
     	
     	
     	loadForm(filledForm);    	
@@ -310,7 +346,7 @@ public class VerbalAutopsyActivity extends Activity {
     	
     	switch (listState){
    	    	case INDIVIDUALS: reloadHouseholds(); return;
-   	    	//case HOUSEHOLDS: reloadNeighborhoods(); return;
+   	    	case HOUSEHOLDS: reloadNeighborhoods(); return;
     	}    	
     	
     	super.onBackPressed();
